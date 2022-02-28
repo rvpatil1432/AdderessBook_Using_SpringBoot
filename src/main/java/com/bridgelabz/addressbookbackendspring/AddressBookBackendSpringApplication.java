@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AddressBookBackendSpringApplication {
 
     public static void main(String[] args) {
-        
         SpringApplication.run(AddressBookBackendSpringApplication.class, args);
+
     }
 
 }
