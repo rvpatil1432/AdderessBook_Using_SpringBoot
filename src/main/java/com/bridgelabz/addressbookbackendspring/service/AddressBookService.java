@@ -9,6 +9,9 @@ import java.util.List;
 
 @Service
 public class AddressBookService implements IAddressBookService{
+
+    private List<AddressBookData> contactList = new ArrayList<>();
+
     @Override
     public List<AddressBookData> getAddressBookData() {
         List<AddressBookData> contactList = new ArrayList<>();
@@ -33,9 +36,13 @@ public class AddressBookService implements IAddressBookService{
     }
 
     @Override
-    public AddressBookData updateContact(AddressBookDTO addressBookDTO) {
-        AddressBookData contact = null;
-        contact = new AddressBookData(1, addressBookDTO);
+    public AddressBookData updateContact(int personId, AddressBookDTO addressBookDTO) {
+        AddressBookData contact = this.getAddressBookDataById(personId);
+        contact.setFirstName(addressBookDTO.firstName);
+        contact.setLastName(addressBookDTO.lastName);
+        contact.setAddress(addressBookDTO.address);
+        contact.setAddress(addressBookDTO.mobileNo);
+        contactList.set(personId-1, contact);
         return contact;
     }
 
